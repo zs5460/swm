@@ -10,10 +10,10 @@ script:
   - go test -v ./...
 
 before_deploy:
-  - GOARCH=amd64 GOOS=linux   go build -o swm-linux-amd64
-  - GOARCH=amd64 GOOS=windows go build -o swm-windows-amd64.exe
-  - zip -r swm-linux-amd64.zip swm-linux-amd64 config.json.sample
-  - zip -r swm-windows-amd64.zip swm-windows-amd64.exe config.json.sample
+  - GOARCH=amd64 GOOS=linux   go build -o swm
+  - GOARCH=amd64 GOOS=windows go build -o swm.exe
+  - zip -r swm-linux-amd64.zip swm config.json.sample
+  - zip -r swm-windows-amd64.zip swm.exe config.json.sample
 
 
 deploy:
