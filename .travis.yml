@@ -1,0 +1,27 @@
+language: go
+
+go:
+  - tip
+
+before_install:
+  - go get -t -v ./...
+
+script:
+  - go test -v ./...
+
+before_deploy:
+  - GOARCH=amd64 GOOS=linux   go build -o swm-linux-amd64
+  - GOARCH=amd64 GOOS=windows go build -o swm-windows-amd64.exe
+  - zip -r swm-linux-amd64.zip swm-linux-amd64 config.json.sample
+  - zip -r swm-windows-amd64.zip swm-windows-amd64.exe config.json.sample
+
+
+deploy:
+  provider: releases
+  api_key: "${GH_TOKEN}"
+  file: 
+    - swm-linux-amd64.zip
+    - swm-windows-amd64.zip
+  skip_cleanup: true
+  on:
+    tags: true
