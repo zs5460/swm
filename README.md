@@ -8,7 +8,7 @@ swm是一个向微信企业号应用成员群发送消息的小工具。
 
 将config.json.sample改名为config.json，填入相关信息。
 
-```json
+```javascript
 {
     "appID":"",  // 企业号的corpid
     "appKey":"", // 应用的Secret
