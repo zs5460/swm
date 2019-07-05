@@ -1,5 +1,7 @@
 # swm
 
+[![Build Status](https://www.travis-ci.org/zs5460/swm.svg?branch=master)](https://www.travis-ci.org/zs5460/swm)
+
 send wechat message
 
 swm是一个向微信企业号应用成员群发送消息的小工具。
