@@ -11,8 +11,10 @@ import (
 )
 
 const (
-	GetTokenUrl = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?"
-	SendMsgUrl  = "https://qyapi.weixin.qq.com/cgi-bin/message/send?"
+	// GetTokenURL ...
+	GetTokenURL = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?"
+	// SendMsgURL ...
+	SendMsgURL = "https://qyapi.weixin.qq.com/cgi-bin/message/send?"
 )
 
 type wechat struct {
@@ -29,17 +31,17 @@ type result struct {
 }
 
 type message struct {
-	ToUser  string `json:"touser,omitempty"`
-	MsgType string `json:"msgtype,omitempty"`
-	AgentID string `json:"agentid,omitempty"`
+	ToUser  string `json:"touser"`
+	MsgType string `json:"msgtype"`
+	AgentID string `json:"agentid"`
 	Text    struct {
 		Content string `json:"content"`
-	} `json:"text,omitempty"`
+	} `json:"text"`
 }
 
 func (wc *wechat) GetToken() {
 	var ret result
-	url := GetTokenUrl + "corpid=" + wc.AppID + "&corpsecret=" + wc.AppKey
+	url := GetTokenURL + "corpid=" + wc.AppID + "&corpsecret=" + wc.AppKey
 	err := my.GetJSON(url, &ret)
 	if err != nil {
 		log.Fatal(err)
@@ -52,7 +54,7 @@ func (wc *wechat) GetToken() {
 
 func (wc *wechat) Send(msg string) {
 	var ret result
-	url := SendMsgUrl + "&access_token=" + wc.AccessToken
+	url := SendMsgURL + "&access_token=" + wc.AccessToken
 	m := message{
 		ToUser:  "@all",
 		MsgType: "text",
