@@ -6,6 +6,11 @@ send wechat message
 
 swm是一个向微信企业号应用成员群发送消息的小工具。
 
+## 下载
+
+[最新版](https://github.com/zs5460/swm/releases/latest)
+
+
 ## 配置
 
 将config.json.sample改名为config.json，填入相关信息。
@@ -20,8 +25,8 @@ swm是一个向微信企业号应用成员群发送消息的小工具。
 
 ## 使用
 
-```shell
-swm hello
+```bash
+>swm hello
 ```
 
 ## Licence
